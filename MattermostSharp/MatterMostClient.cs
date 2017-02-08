@@ -36,7 +36,7 @@ namespace MattermostSharp
         {
             
             RestClient client = new RestClient(domain);
-            var req = new RestRequest(MMEndpoints.V3.Users.Login(), Method.POST);
+            var req = new RestRequest(MmEndpoints.V3.Users.Login(), Method.POST);
             LoginModel model = new LoginModel()
             {
                 DeviceId = deviceId,
