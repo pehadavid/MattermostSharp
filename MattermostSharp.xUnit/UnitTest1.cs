@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -12,7 +13,7 @@ namespace MattermostSharp.xUnit
             string username = "pa@nextinpact.com";
             string password = "toto12345";
 
-            MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"), "community",
+            MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"), 
                 "dotnetmm", new MatterMostUser(username, password));
             var uat = await client.AuthenticateAsync();
             Assert.True(uat);
@@ -25,9 +26,66 @@ namespace MattermostSharp.xUnit
             string username = "imjustinvalid@blah.com";
             string password = "toto12345";
 
-            MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"), "community", "dotnetmm", new MatterMostUser(username, password));
+            MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"),  "dotnetmm", new MatterMostUser(username, password));
             var uat = await client.AuthenticateAsync();
             Assert.False(uat);
+        }
+
+
+        [Fact]
+        public async Task TestMyTeams()
+        {
+            string username = "pa@nextinpact.com";
+            string password = "toto12345";
+
+            MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"),  "dotnetmm", new MatterMostUser(username, password));
+            var uat = await client.AuthenticateAsync();
+            var teams = await client.GetMyTeamsAsync();
+            Assert.True(teams.Any());
+        }
+
+
+        //[Fact]
+        //public async Task TestMyTeamsFull()
+        //{
+        //    string username = "pa@nextinpact.com";
+        //    string password = "toto12345";
+
+        //    MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"),  "dotnetmm", new MatterMostUser(username, password));
+        //    var uat = await client.AuthenticateAsync();
+        //    var teams = await client.GetFullTeamsAsync();
+        //    Assert.NotNull(teams);
+           
+        //}
+
+
+        [Fact]
+        public async Task TestUnjoinedChannels()
+        {
+            string username = "pa@nextinpact.com";
+            string password = "toto12345";
+
+            MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"),  "dotnetmm", new MatterMostUser(username, password));
+            var uat = await client.AuthenticateAsync();
+            var teams = await client.GetMyTeamsAsync();
+            var channels = await client.GetUnjoinedChannelsAsync(teams.FirstOrDefault());
+            Assert.True(channels.Any());
+
+        }
+
+
+        [Fact]
+        public async Task TestJoinedChannels()
+        {
+            string username = "pa@nextinpact.com";
+            string password = "toto12345";
+
+            MatterMostClient client = new MatterMostClient(new Uri("https://gitlab.mattermost.com"), "dotnetmm", new MatterMostUser(username, password));
+            var uat = await client.AuthenticateAsync();
+            var teams = await client.GetMyTeamsAsync();
+            var channels = await client.GetJoinedChannelAsync(teams.FirstOrDefault());
+            Assert.True(channels.Any());
+
         }
     }
 }

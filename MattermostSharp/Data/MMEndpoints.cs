@@ -38,7 +38,7 @@
                 /// <summary>
                 /// Get. (users from a team)
                 /// </summary>
-                public static string GetTeamUsers(int teamId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/users/{offset}/{limit}";
+                public static string GetTeamUsers(string teamId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/users/{offset}/{limit}";
 
 
                 /// <summary>
@@ -67,12 +67,12 @@
                 /// <summary>
                 /// get
                 /// </summary>
-                public static string GetUsersInChannel(int teamId, int channelId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/users/{offset}/{limit}";
+                public static string GetUsersInChannel(string teamId, string channelId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/users/{offset}/{limit}";
 
                 /// <summary>
                 /// get
                 /// </summary>
-                public static string GetUsersNotInChannel(int teamId, int channelId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/users/not_in_channel/{offset}/{limit}";
+                public static string GetUsersNotInChannel(string teamId, string channelId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/users/not_in_channel/{offset}/{limit}";
 
                 /// <summary>
                 /// POST
@@ -114,13 +114,13 @@
                 /// get
                 /// </summary>
                 /// <returns></returns>
-                public static string GetUserAutoCompleteTeam(int teamId) => $"{CommonSeg}/teams/{teamId}/users/autocomplete";
+                public static string GetUserAutoCompleteTeam(string teamId) => $"{CommonSeg}/teams/{teamId}/users/autocomplete";
 
                 /// <summary>
                 /// get
                 /// </summary>
                 /// <returns></returns>
-                public static string GetUserAutoCompleteTeamChannel(int teamId, int channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/users/autocomplete";
+                public static string GetUserAutoCompleteTeamChannel(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/users/autocomplete";
 
             }
 
@@ -147,7 +147,7 @@
                 /// GET
                 /// </summary>
                 /// <returns></returns>
-                public static string GetMembers() => $"{CommonSeg}/teams/members";
+                public static string GetUserTeams() => $"{CommonSeg}/teams/members";
 
 
                 /// <summary>
@@ -161,67 +161,67 @@
                 /// GET
                 /// </summary>
                 /// <returns></returns>
-                public static string GetTeamMembers(int teamId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/members/{offset}/{limit}";
+                public static string GetTeamMembers(string teamId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/members/{offset}/{limit}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <returns></returns>
-                public static string GetSingleTeamMember(int teamId, int userId) => $"{CommonSeg}/teams/{teamId}/members/{userId}";
+                public static string GetSingleTeamMember(string teamId, string userId) => $"{CommonSeg}/teams/{teamId}/members/{userId}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <returns></returns>
-                public static string GetTeamMembersByIds(int teamId) => $"{CommonSeg}/teams/{teamId}/members/ids";
-
-
-                /// <summary>
-                /// GET
-                /// </summary>
-                /// <returns></returns>
-                public static string GetTeamObject(int teamId) => $"{CommonSeg}/teams/{teamId}/me";
+                public static string GetTeamMembersByIds(string teamId) => $"{CommonSeg}/teams/{teamId}/members/ids";
 
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <returns></returns>
-                public static string GetTeamObject(string teamName) => $"{CommonSeg}/teams/name/{teamName}";
+                public static string GetTeamObjectById(string teamId) => $"{CommonSeg}/teams/{teamId}/me";
+
+
+                /// <summary>
+                /// GET
+                /// </summary>
+                /// <returns></returns>
+                public static string GetTeamObjectByName(string teamName) => $"{CommonSeg}/teams/name/{teamName}";
 
                 /// <summary>
                 /// POST
                 /// </summary>
                 /// <returns></returns>
-                public static string Update(int teamId) => $"{CommonSeg}/teams/{teamId}/update";
+                public static string Update(string teamId) => $"{CommonSeg}/teams/{teamId}/update";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <returns></returns>
-                public static string GetStats(int teamId) => $"{CommonSeg}/teams/{teamId}/stats";
-
-
-                /// <summary>
-                /// POST
-                /// </summary>
-                /// <returns></returns>
-                public static string AddUserToTeam(int teamId) => $"{CommonSeg}/teams/{teamId}/add_user_to_team";
-
+                public static string GetStats(string teamId) => $"{CommonSeg}/teams/{teamId}/stats";
 
 
                 /// <summary>
                 /// POST
                 /// </summary>
                 /// <returns></returns>
-                public static string RemoveUserFromTeam(int teamId) => $"{CommonSeg}/teams/{teamId}/remove_user_from_team";
+                public static string AddUserToTeam(string teamId) => $"{CommonSeg}/teams/{teamId}/add_user_to_team";
+
+
+
+                /// <summary>
+                /// POST
+                /// </summary>
+                /// <returns></returns>
+                public static string RemoveUserFromTeam(string teamId) => $"{CommonSeg}/teams/{teamId}/remove_user_from_team";
 
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <returns></returns>
-                public static string GetListSlashCommands(int teamId) => $"{CommonSeg}/teams/{teamId}/commands/list_team_commands";
+                public static string GetListSlashCommands(string teamId) => $"{CommonSeg}/teams/{teamId}/commands/list_team_commands";
 
 
             }
@@ -233,7 +233,7 @@
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string Create(int teamId) => $"{CommonSeg}/teams/{teamId}/channels/create";
+                public static string Create(string teamId) => $"{CommonSeg}/teams/{teamId}/channels/create";
 
 
                 /// <summary>
@@ -241,14 +241,14 @@
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string Update(int teamId) => $"{CommonSeg}/teams/{teamId}/channels/update";
+                public static string Update(string teamId) => $"{CommonSeg}/teams/{teamId}/channels/update";
 
                 /// <summary>
                 /// POST
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string View(int teamId) => $"{CommonSeg}/teams/{teamId}/channels/view";
+                public static string View(string teamId) => $"{CommonSeg}/teams/{teamId}/channels/view";
 
 
                 /// <summary>
@@ -256,7 +256,7 @@
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string GetChannelsForUsers(int teamId) => $"{CommonSeg}/teams/{teamId}/channels";
+                public static string GetChannelsForUser(string teamId) => $"{CommonSeg}/teams/{teamId}/channels/";
 
 
                 /// <summary>
@@ -264,7 +264,7 @@
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string GetChannelByName(int teamId) => $"{CommonSeg}/teams/{teamId}/channels/name";
+                public static string GetChannelByName(string teamId) => $"{CommonSeg}/teams/{teamId}/channels/name";
 
 
                 /// <summary>
@@ -272,28 +272,28 @@
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string GetUnjoinedChannel(int teamId, int offset = 0, int limit = 0) => (offset < 1 || limit < 1) ? $"{CommonSeg}/teams/{teamId}/channels/more" : $"{CommonSeg}/teams/{teamId}/channels/more/{offset}/{limit}";
+                public static string GetUnjoinedChannel(string teamId, int offset = 0, int limit = 0) => (offset < 1 || limit < 1) ? $"{CommonSeg}/teams/{teamId}/channels/more" : $"{CommonSeg}/teams/{teamId}/channels/more/{offset}/{limit}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string GetChannelById(int teamId, int channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}";
+                public static string GetChannelById(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string GetChannelStats(int teamId, int channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/stats";
+                public static string GetChannelStats(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/stats";
 
                 /// <summary>
                 /// POST
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string Delete(int teamId, int channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/delete";
+                public static string Delete(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/delete";
 
 
                 /// <summary>
@@ -301,7 +301,7 @@
                 /// </summary>
                 /// <param name="teamId"></param>
                 /// <returns></returns>
-                public static string AddUser(int teamId, int channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/add";
+                public static string AddUser(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/add";
 
 
                 /// <summary>
@@ -310,7 +310,7 @@
                 /// <param name="teamId"></param>
                 /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string GetMember(int teamId, int channelId, int userId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/members/{userId}";
+                public static string GetMember(string teamId, string channelId, string userId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/members/{userId}";
 
 
                 /// <summary>
@@ -319,7 +319,7 @@
                 /// <param name="teamId"></param>
                 /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string GetMembersById(int teamId, int channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/members/ids";
+                public static string GetMembersById(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/members/ids";
 
 
 
@@ -329,7 +329,7 @@
                 /// <param name="teamId"></param>
                 /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string UpdateMemberRoles(int teamId, int channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/update_member_roles";
+                public static string UpdateMemberRoles(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/update_member_roles";
 
 
                 /// <summary>
@@ -338,7 +338,7 @@
                 /// <param name="teamId"></param>
                 /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string Autocomplete(int teamId) => $"{CommonSeg}/teams/{teamId}/channels/autocomplete";
+                public static string Autocomplete(string teamId) => $"{CommonSeg}/teams/{teamId}/channels/autocomplete";
 
 
                 /// <summary>
@@ -347,7 +347,7 @@
                 /// <param name="teamId"></param>
                 /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string MoreSearch(int teamId) => $"{CommonSeg}/teams/{teamId}/channels/more/searchs";
+                public static string MoreSearch(string teamId) => $"{CommonSeg}/teams/{teamId}/channels/more/searchs";
 
             }
 
@@ -359,7 +359,7 @@
                 /// <param name="teamId"></param>
                 /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string Search(int teamId) => $"{CommonSeg}/teams/{teamId}/posts/search";
+                public static string Search(string teamId) => $"{CommonSeg}/teams/{teamId}/posts/search";
                 
                 /// <summary>
                 /// GET
@@ -368,7 +368,7 @@
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string GetFlagged(int teamId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/flagged/{offset}/{limit}";
+                public static string GetFlagged(string teamId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/flagged/{offset}/{limit}";
 
 
                 /// <summary>
@@ -377,9 +377,9 @@
                 /// <param name="teamId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string Create(int teamId, int channel_id) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/posts/create";
+                public static string Create(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/posts/create";
 
 
                 /// <summary>
@@ -388,100 +388,100 @@
                 /// <param name="teamId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <returns></returns>
-                public static string Update(int teamId, int channel_id) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/posts/update";
+                public static string Update(string teamId, string channelId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/posts/update";
 
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string Get(int teamId, int channel_id, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/posts/page/{offset}/{limit}";
+                public static string Get(string teamId, string channelId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/posts/page/{offset}/{limit}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string GetSince(int teamId, int channel_id,int unixTime) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/posts/since/{unixTime}";
+                public static string GetSince(string teamId, string channelId,string unixTime) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/posts/since/{unixTime}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string GetPost(int teamId, int channel_id, int post_id) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/posts/{post_id}/get";
+                public static string GetPost(string teamId, string channelId, string postId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/posts/{postId}/get";
 
                 /// <summary>
                 /// POST
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
-                /// <param name="post_id"></param>
+                /// <param name="channelId"></param>
+                /// <param name="postId"></param>
                 /// <returns></returns>
-                public static string Delete(int teamId, int channel_id, int post_id) => $"{CommonSeg}/teams/{teamId}/channels/channels/{channel_id}/posts/{post_id}/delete";
+                public static string Delete(string teamId, string channelId, string postId) => $"{CommonSeg}/teams/{teamId}/channels/channels/{channelId}/posts/{postId}/delete";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string GetPostsBefore(int teamId, int channel_id, int post_id, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/channels/{channel_id}/posts/{post_id}/before/{offset}/{limit}";
+                public static string GetPostsBefore(string teamId, string channelId, string postId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/channels/{channelId}/posts/{postId}/before/{offset}/{limit}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string GetPostsAfter(int teamId, int channel_id, int post_id, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/channels/{channel_id}/posts/{post_id}/after/{offset}/{limit}";
+                public static string GetPostsAfter(string teamId, string channelId, string postId, int offset, int limit) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/channels/{channelId}/posts/{postId}/after/{offset}/{limit}";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string GetPostReactions(int teamId, int channel_id, int post_id) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/channels/{channel_id}/posts/{post_id}/reactions";
+                public static string GetPostReactions(string teamId, string channelId, string postId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/channels/{channelId}/posts/{postId}/reactions";
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string ReactPost(int teamId, int channel_id, int post_id) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/channels/{channel_id}/posts/{post_id}/reactions/save";
+                public static string ReactPost(string teamId, string channelId, string postId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/channels/{channelId}/posts/{postId}/reactions/save";
 
 
                 /// <summary>
                 /// GET
                 /// </summary>
                 /// <param name="teamId"></param>
-                /// <param name="channel_id"></param>
+                /// <param name="channelId"></param>
                 /// <param name="offset"></param>
                 /// <param name="limit"></param>
                 /// <returns></returns>
-                public static string RemoveReaction(int teamId, int channel_id, int post_id) => $"{CommonSeg}/teams/{teamId}/channels/{channel_id}/channels/{channel_id}/posts/{post_id}/reactions/delete";
+                public static string RemoveReaction(string teamId, string channelId, string postId) => $"{CommonSeg}/teams/{teamId}/channels/{channelId}/channels/{channelId}/posts/{postId}/reactions/delete";
 
             }
 

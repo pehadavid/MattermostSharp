@@ -23,7 +23,16 @@ namespace MattermostSharp
 
             return tcs.Task;
         }
+        public static Task<IRestResponse<T>> ExecuteTaskAsync<T>(this RestClient client, IRestRequest request) where T : class, new()
+        {
+            var tcs = new TaskCompletionSource<IRestResponse<T>>();
+            client.ExecuteAsync<T>(request, response =>
+            {
+                tcs.SetResult(response);
+            });
 
+            return tcs.Task;
+        }
 
         public static void AddJsonNetBody(this IRestRequest request, object body)
         {
